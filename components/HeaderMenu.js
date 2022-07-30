@@ -42,23 +42,25 @@ export default function HeaderMenu () {
 
     return (
         <>
-            <nav className="bg-white container flex items-center justify-between mx-auto py-6">
-                <Link href="/">
-                    <a>
-                        <Logo />
-                    </a>
-                </Link>
-                <ul className="flex">
-                    { menu.map((value, index) => {
-                        return (
-                            <li key={value.title} className={`${value.class}${active==index?' text-mystic-red':' text-dim-gray hover:text-mystic-red transition-colors'}`}>
-                                <Link href={value.link}>{value.title}</Link>
-                            </li>
-                        )
-                    })}
-                </ul>
-                <button className="bg-mystic-red text-white text-lg px-12 py-2.5 hover:bg-space-cadet transition-colors">Book Now</button>
-            </nav>
+            <div className="bg-white">
+                <nav className="container flex items-center justify-between mx-auto py-6">
+                    <Link href="/">
+                        <a>
+                            <Logo />
+                        </a>
+                    </Link>
+                    <ul className="flex">
+                        { menu.map((value, index) => {
+                            return (
+                                <li key={value.title} className={`${value.class}${active==index?' text-mystic-red':' text-dim-gray hover:text-mystic-red transition-colors'}`}>
+                                    <Link href={value.link}>{value.title}</Link>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                    <button className="bg-mystic-red text-white text-lg px-12 py-2.5 hover:bg-space-cadet transition-colors">Book Now</button>
+                </nav>
+            </div>
         </>
     )
 }

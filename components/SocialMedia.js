@@ -2,7 +2,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram"
 import { faSquareFacebook } from "@fortawesome/free-brands-svg-icons/faSquareFacebook"
 import { faSquareTwitter } from "@fortawesome/free-brands-svg-icons/faSquareTwitter"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Link from "next/link";
+import Link from "next/link"
 
 export default function SocialMedia () {
     return (

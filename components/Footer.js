@@ -1,7 +1,7 @@
-import LogoFooter from "./LogoFooter";
-import FooterMenu from "./FooterMenu";
-import Link from "next/link";
-import SocialMedia from "./SocialMedia";
+import LogoFooter from "./LogoFooter"
+import FooterMenu from "./FooterMenu"
+import Link from "next/link"
+import SocialMedia from "./SocialMedia"
 
 export default function Footer () {
     return (
