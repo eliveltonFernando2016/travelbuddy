@@ -8,13 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'dim-gray': '#696969',
         'silver-sand': '#C4C4C4',
         'antiflash-white': '#F3F3F3',
+        'dim-gray': '#696969',
+        'granite-gray': '#626262',
+        'arsenic': '#434343',
+        'mikado-yellow': '#FEC710',
         'mystic-red': '#FF5403',
+        'lava': '#DA1212',
         'blue-de-france': '#2D93EA',
         'ucla-blue': '#51728E',
         'space-cadet': '#19224D',
+        'cool-black': '#041562',
         'cetacean-blue': '#000B3E'
       },
       fontFamily: {

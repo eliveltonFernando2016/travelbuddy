@@ -7,3 +7,13 @@
         @apply m-0 bg-antiflash-white;
     }
 }
+
+.react-date-picker__wrapper {
+    border: none !important;
+}
+.react-date-picker__inputGroup input::placeholder {
+    color: #2D93EA;
+}
+.react-date-picker__button svg {
+    stroke: #2D93EA;
+}
