@@ -18,6 +18,7 @@ module.exports = {
         'lava': '#DA1212',
         'blue-de-france': '#2D93EA',
         'ucla-blue': '#51728E',
+        'violet-blue': '#3045A5',
         'space-cadet': '#19224D',
         'cool-black': '#041562',
         'cetacean-blue': '#000B3E'

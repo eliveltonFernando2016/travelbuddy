@@ -1,25 +1,35 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons/faStar";
 
-export default function Cards () {
+export default function Cards ({ content }) {
     return (
         <>
             <div>
-                <div className="h-[338px] overflow-hidden">
-                    <img src="https://casacor.abril.com.br/wp-content/uploads/sites/7/2021/05/jad-sylla-tours-duo-jean-nouvel-designboom-01.png?w=818" />
+                <div className="h-[338px] w-full overflow-hidden">
+                    <img src={content.image} className="h-[338px] max-w-none min-w-full" />
                 </div>
-                <p className="text-2xl text-black tracking-wider mt-10">Hotel Grand Indonesia</p>
-                <p className="pt-6">
-                    <span className="text-mikado-yellow">
-                        <FontAwesomeIcon icon={faStar} className="mr-1" />
-                        <FontAwesomeIcon icon={faStar} className="mr-1" />
-                        <FontAwesomeIcon icon={faStar} className="mr-1" />
-                        <FontAwesomeIcon icon={faStar} className="mr-1" />
-                        <FontAwesomeIcon icon={faStar} className="mr-1" />
-                    </span>
-                    <span className="text-black font-light">(200 Review)</span></p>
-                <p className="pt-2.5 text-granite-gray font-light text-lg">Jakarta, Indonesia</p>
-                <p className="pt-2.5 text-black font-light">From <span className="text-lava">Rp1.500.000,00</span></p>
+                <p className="text-2xl text-black tracking-wider mt-10">{content.title}</p>
+                {content.numberStars && content.reviewCount &&
+                    <p className="pt-6">
+                        <span className="text-mikado-yellow">
+                            {/*{content.numberStars.map((value, index) => {*/}
+                            {/*    return (*/}
+                            {/*        <FontAwesomeIcon key={index} icon={faStar} className="mr-1"/>*/}
+                            {/*    )*/}
+                            {/*})}*/}
+                        </span>
+                        <span className="text-black font-light">({content.reviewCount} Review)</span>
+                    </p>
+                }
+                {content.description &&
+                    <p className="pt-2.5 text-granite-gray font-light text-lg">{content.description}</p>
+                }
+                {content.place && content.country &&
+                    <p className="pt-2.5 text-granite-gray font-light text-lg">{content.place}, {content.country}</p>
+                }
+                {content.price && content.coin &&
+                    <p className="pt-2.5 text-black font-light">From <span className="text-lava">{content.coin}{content.price}</span></p>
+                }
             </div>
         </>
     )

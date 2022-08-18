@@ -5,9 +5,69 @@ import 'react-date-picker/dist/DatePicker.css'
 import 'react-calendar/dist/Calendar.css'
 import UpcomingCarousel from "../components/UpcomingCarousel"
 import Cards from "../components/Cards"
-import {faChevronLeft} from "@fortawesome/free-solid-svg-icons/faChevronLeft"
+
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faChevronRight} from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import {faChevronLeft} from "@fortawesome/free-solid-svg-icons/faChevronLeft"
+import {faChevronRight} from "@fortawesome/free-solid-svg-icons/faChevronRight"
+import {Navigation} from "swiper"
+import {Swiper, SwiperSlide} from "swiper/react"
+import {faStar} from "@fortawesome/free-solid-svg-icons/faStar"
+
+const serviceCard = [
+    {
+        id: 1,
+        title: 'Transportation',
+        description: 'All transportation cost we bear',
+        image: 'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_450,q_auto,w_450/itemimages/34/79/34796_v7.jpeg'
+    },
+    {
+        id: 2,
+        title: 'Guidence',
+        description: 'We offer the best guidence for you',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Ponta_Negra_Beach_Hotel.jpg'
+    },
+    {
+        id: 3,
+        title: 'Accomodation',
+        description: 'Luxarious and comfortable',
+        image: 'https://odia.ig.com.br/_midias/jpg/2022/07/14/398x470/1_gloria_residencial___fachada-25797441.jpg'
+    }
+]
+const topCard = [
+    {
+        id: 1,
+        title: 'Hotel Grand Indonesia',
+        image: 'https://www.melhoresdestinos.com.br/wp-content/uploads/2020/10/melhores-resorts-mundo-capa2019.jpg',
+        numberStars: 5,
+        reviewCount: 200,
+        place: 'Jakarta',
+        country: 'Indonesia',
+        coin: 'Rp',
+        price: 150000000
+    },
+    {
+        id: 2,
+        title: 'Hotel Grand Indonesia',
+        image: 'https://viagemeturismo.abril.com.br/wp-content/uploads/2015/12/188153847.jpg?quality=70&strip=info',
+        numberStars: 4,
+        reviewCount: 200,
+        place: 'Jakarta',
+        country: 'Indonesia',
+        coin: 'Rp',
+        price: 150000000
+    },
+    {
+        id: 3,
+        title: 'Hotel Grand Indonesia',
+        image: 'https://olhardoviajante.com.br/wp-content/uploads/2021/03/Trancoso-26.png',
+        numberStars: 3,
+        reviewCount: 200,
+        place: 'Jakarta',
+        country: 'Indonesia',
+        coin: 'Rp',
+        price: 150000000
+    }
+]
 
 export default function Home() {
     const [checkIn, setCheckin] = useState('')
@@ -15,6 +75,9 @@ export default function Home() {
 
     const navigationPrev = useRef(null)
     const navigationNext = useRef(null)
+
+    const [services, setServices] = useState(serviceCard)
+    const [top, setTop] = useState(topCard)
 
     return (
         <>
@@ -113,9 +176,11 @@ export default function Home() {
                 <p className="text-center text-granite-gray text-lg tracking-wider pt-5">The Best Hotel & Restorants in Indonesia</p>
 
                 <div className="mt-16 grid grid-cols-3 gap-12">
-                    <Cards />
-                    <Cards />
-                    <Cards />
+                    {top.map((value, index) => {
+                        return (
+                            <Cards key={index} content={value} />
+                        )
+                    })}
                 </div>
             </section>
 
@@ -124,14 +189,112 @@ export default function Home() {
                     <div className="flex justify-between items-center">
                         <h2 className="text-white text-4xl font-semibold">What they Said</h2>
                         <div className="flex">
-                            <div ref={navigationPrev} className="bg-blue-de-france text-white w-16 h-16 mr-2">
+                            <div ref={navigationPrev} className="bg-blue-de-france text-white w-16 h-16 mr-2 flex justify-center items-center hover:bg-violet-blue transition-colors cursor-pointer">
                                 <FontAwesomeIcon icon={faChevronLeft} size="2x" />
                             </div>
-                            <div ref={navigationNext} className="bg-blue-de-france text-white w-16 h-16 ml-2">
+                            <div ref={navigationNext} className="bg-blue-de-france text-white w-16 h-16 ml-2 flex justify-center items-center hover:bg-violet-blue transition-colors cursor-pointer">
                                 <FontAwesomeIcon icon={faChevronRight} size="2x" />
                             </div>
                         </div>
                     </div>
+                    <Swiper
+                        className="mt-20"
+                        spaceBetween={50}
+                        slidesPerView={3}
+                        modules={[Navigation]}
+                        onInit={(swiper) => {
+                            swiper.params.navigation.prevEl = navigationPrev.current;
+                            swiper.params.navigation.nextEl = navigationNext.current;
+                            swiper.navigation.init();
+                            swiper.navigation.update();
+                        }}
+                    >
+                        <SwiperSlide>
+                            <div className="bg-violet-blue/[.6] py-6 px-8">
+                                <span className="text-mikado-yellow">
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                </span>
+                                <p className="text-lg text-white py-9">
+                                    Waters make fish every without
+                                    firmament saw had. Morning air
+                                    subdue. Our, air very one. Whales
+                                    grass is fish whales winged.
+                                </p>
+                                <span className="text-white text-lg">- Reza mukhti 1</span>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="bg-violet-blue/[.6] py-6 px-8">
+                                <span className="text-mikado-yellow">
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                </span>
+                                <p className="text-lg text-white py-9">
+                                    Waters make fish every without
+                                    firmament saw had. Morning air
+                                    subdue. Our, air very one. Whales
+                                    grass is fish whales winged.
+                                </p>
+                                <span className="text-white text-lg">- Reza mukhti 2</span>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="bg-violet-blue/[.6] py-6 px-8">
+                                <span className="text-mikado-yellow">
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                </span>
+                                <p className="text-lg text-white py-9">
+                                    Waters make fish every without
+                                    firmament saw had. Morning air
+                                    subdue. Our, air very one. Whales
+                                    grass is fish whales winged.
+                                </p>
+                                <span className="text-white text-lg">- Reza mukhti 3</span>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="bg-violet-blue/[.6] py-6 px-8">
+                                <span className="text-mikado-yellow">
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                    <FontAwesomeIcon icon={faStar} className="ml-1" />
+                                </span>
+                                <p className="text-lg text-white py-9">
+                                    Waters make fish every without
+                                    firmament saw had. Morning air
+                                    subdue. Our, air very one. Whales
+                                    grass is fish whales winged.
+                                </p>
+                                <span className="text-white text-lg">- Reza mukhti 4</span>
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
+            </section>
+
+            <section className="container mx-auto my-36">
+                <h2 className="text-center text-cool-black text-4xl font-semibold tracking-wider">We offered best services</h2>
+                <p className="text-center text-granite-gray text-lg tracking-wider pt-5">The Best Service</p>
+
+                <div className="mt-16 grid grid-cols-3 gap-12">
+                    {services.map((value, index) => {
+                        return (
+                            <Cards key={index} content={value} />
+                        )
+                    })}
                 </div>
             </section>
         </>
