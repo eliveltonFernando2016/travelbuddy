@@ -12,6 +12,8 @@ import {faChevronRight} from "@fortawesome/free-solid-svg-icons/faChevronRight"
 import {Navigation} from "swiper"
 import {Swiper, SwiperSlide} from "swiper/react"
 import {faStar} from "@fortawesome/free-solid-svg-icons/faStar"
+import Gallery from "../components/Gallery"
+import SectionHeader from "../components/SectionHeader";
 
 const serviceCard = [
     {
@@ -68,6 +70,12 @@ const topCard = [
         price: 150000000
     }
 ]
+const GalleryItems = [
+    'https://atlantis.nyc3.digitaloceanspaces.com/media/legacy/atlantis/Things_To_Do/Water_Park/Beaches/Hero/Experiences_Beach.jpg',
+    'https://www.beachpark.com.br/wp-content/uploads/2014/07/sem-t%C3%ADtulo19-2.jpg',
+    'https://www.beachpark.com.br/wp-content/uploads/2014/07/MG_9776-2.jpg',
+    'https://viagemeturismo.abril.com.br/wp-content/uploads/2021/07/fullscreen_letterbox-DRONE-018-EAGLE-BEACH.jpg'
+]
 
 export default function Home() {
     const [checkIn, setCheckin] = useState('')
@@ -79,6 +87,8 @@ export default function Home() {
     const [services, setServices] = useState(serviceCard)
     const [top, setTop] = useState(topCard)
 
+    const [gallery, setGallery] = useState(GalleryItems)
+
     return (
         <>
             <Head>
@@ -86,6 +96,7 @@ export default function Home() {
               <meta name="description" content="TravelBuddy Website - Home" />
             </Head>
 
+            {/* Search Filter */}
             <div className="container mx-auto -mt-40">
               <div className="text-center">
                 <button className="bg-mystic-red text-white text-lg px-12 py-2.5 hover:bg-space-cadet transition-colors">Discover Now</button>
@@ -145,35 +156,23 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Top Places to visit */}
             <section className="container mx-auto mt-36">
-                <h2 className="text-center text-cool-black text-4xl font-semibold tracking-wider">Top Places to visit</h2>
-                <p className="text-center text-granite-gray text-lg tracking-wider pt-5">The Best Place to Stay in Indonesia</p>
-                <div className="grid grid-cols-2 gap-12 mt-16">
-                  <div className="w-full h-[415px] overflow-hidden">
-                    <img src="https://atlantis.nyc3.digitaloceanspaces.com/media/legacy/atlantis/Things_To_Do/Water_Park/Beaches/Hero/Experiences_Beach.jpg" className="h-[415px] max-w-none min-w-full" />
-                  </div>
-                  <div className="w-full h-[415px] overflow-hidden">
-                    <img src="https://www.beachpark.com.br/wp-content/uploads/2014/07/sem-t%C3%ADtulo19-2.jpg" className="h-[415px] max-w-none min-w-full" />
-                  </div>
-                  <div className="w-full h-[415px] overflow-hidden">
-                    <img src="https://www.beachpark.com.br/wp-content/uploads/2014/07/MG_9776-2.jpg" className="h-[415px] max-w-none min-w-full" />
-                  </div>
-                  <div className="w-full h-[415px] overflow-hidden">
-                    <img src="https://viagemeturismo.abril.com.br/wp-content/uploads/2021/07/fullscreen_letterbox-DRONE-018-EAGLE-BEACH.jpg" className="h-[415px] max-w-none min-w-full" />
-                  </div>
-              </div>
+                <SectionHeader title="Top Places to visit" description="The Best Place to Stay in Indonesia" />
+                <Gallery content={gallery} />
                 <div className="text-center mt-16">
                 <button className="bg-mystic-red text-white text-lg px-12 py-2.5 hover:bg-space-cadet transition-colors">Discover More</button>
               </div>
             </section>
 
+            {/* Upcoming Event */}
             <section className="mt-36">
                 <UpcomingCarousel />
             </section>
 
+            {/* Top Hotel & Restaurants */}
             <section className="container mx-auto mt-36">
-                <h2 className="text-center text-cool-black text-4xl font-semibold tracking-wider">Top Hotel & Restorants</h2>
-                <p className="text-center text-granite-gray text-lg tracking-wider pt-5">The Best Hotel & Restorants in Indonesia</p>
+                <SectionHeader title="Top Hotel & Restorants" description="The Best Hotel & Restorants in Indonesia" />
 
                 <div className="mt-16 grid grid-cols-3 gap-12">
                     {top.map((value, index) => {
@@ -184,6 +183,7 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Whay They said */}
             <section className="bg-cool-black py-24 mt-36">
                 <div className="container mx-auto">
                     <div className="flex justify-between items-center">
@@ -285,9 +285,9 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* We offered best services */}
             <section className="container mx-auto my-36">
-                <h2 className="text-center text-cool-black text-4xl font-semibold tracking-wider">We offered best services</h2>
-                <p className="text-center text-granite-gray text-lg tracking-wider pt-5">The Best Service</p>
+                <SectionHeader title="We offered best services" description="The Best Service" />
 
                 <div className="mt-16 grid grid-cols-3 gap-12">
                     {services.map((value, index) => {

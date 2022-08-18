@@ -2,6 +2,7 @@ import Head from "next/head"
 import UpcomingCarousel from "../components/UpcomingCarousel"
 import Cards from "../components/Cards"
 import {useState} from "react";
+import SectionHeader from "../components/SectionHeader";
 
 const topCard = [
     {
@@ -69,9 +70,9 @@ export default function Home() {
                 <title>TravelBuddy - Packages</title>
                 <meta name="description" content="TravelBuddy Website - Packages" />
             </Head>
+
             <section className="container mx-auto mt-36">
-                <h2 className="text-center text-cool-black text-4xl font-semibold tracking-wider">Top Hotel & Restorants</h2>
-                <p className="text-center text-granite-gray text-lg tracking-wider pt-5">The Best Hotel & Restorants in Indonesia</p>
+                <SectionHeader title="Top Hotel & Restorants" description="The Best Hotel & Restorants in Indonesia" />
 
                 <div className="mt-16 grid grid-cols-3 gap-12">
                     {top.map((value, index) => {
@@ -81,12 +82,13 @@ export default function Home() {
                     })}
                 </div>
             </section>
+
             <section className="mt-36">
                 <UpcomingCarousel />
             </section>
+
             <section className="container mx-auto my-36">
-                <h2 className="text-center text-cool-black text-4xl font-semibold tracking-wider">We offered best services</h2>
-                <p className="text-center text-granite-gray text-lg tracking-wider pt-5">The Best Service</p>
+                <SectionHeader title="We offered best services" description="The Best Service" />
 
                 <div className="mt-16 grid grid-cols-3 gap-12">
                     {services.map((value, index) => {

@@ -2,6 +2,10 @@ import Head from "next/head"
 import UpcomingCarousel from "../components/UpcomingCarousel"
 import Cards from "../components/Cards"
 import {useState} from "react"
+import Image from "next/image"
+
+import LogoAboutUs from "../public/LogoAboutUs.svg"
+import SectionHeader from "../components/SectionHeader";
 
 const serviceCard = [
     {
@@ -32,12 +36,27 @@ export default function Aboutus() {
                 <title>TravelBuddy - About Us</title>
                 <meta name="description" content="TravelBuddy Website - About Us" />
             </Head>
+
+            <section className="container mx-auto mt-36">
+                <div className="grid grid-cols-2 gap-x-12">
+                    <Image src={LogoAboutUs} />
+                    <div>
+                        <span className="text-lg text-mystic-red tracking-wider">Who we are</span>
+                        <h2 className="text-3xl text-cool-black font-semibold tracking-wider mt-6">We love to discover Indonesia</h2>
+                        <p className="pt-6 text-lg tracking-wider text-dim-gray">
+                            Waters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales grass is fish whales winged night yielding land creeping that seed appear were bearing.<br/><br/>
+                            Waters make fish every without firmament saw had. Morning air subdue. Our. Air very one. Whales grass is fish whales winged night yielding land creeping that seed appear were bearing.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <section className="mt-36">
                 <UpcomingCarousel />
             </section>
+
             <section className="container mx-auto my-36">
-                <h2 className="text-center text-cool-black text-4xl font-semibold tracking-wider">We offered best services</h2>
-                <p className="text-center text-granite-gray text-lg tracking-wider pt-5">The Best Service</p>
+                <SectionHeader title="We offered best services" description="The Best Service" />
 
                 <div className="mt-16 grid grid-cols-3 gap-12">
                     {services.map((value, index) => {
