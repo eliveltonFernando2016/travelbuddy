@@ -161,8 +161,8 @@ export default function Home() {
                 <SectionHeader title="Top Places to visit" description="The Best Place to Stay in Indonesia" />
                 <Gallery content={gallery} />
                 <div className="text-center mt-16">
-                <button className="bg-mystic-red text-white text-lg px-12 py-2.5 hover:bg-space-cadet transition-colors">Discover More</button>
-              </div>
+                    <button className="bg-mystic-red text-white text-lg px-12 py-2.5 hover:bg-space-cadet transition-colors">Discover More</button>
+                </div>
             </section>
 
             {/* Upcoming Event */}

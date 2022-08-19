@@ -1,7 +1,13 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faStar} from "@fortawesome/free-solid-svg-icons/faStar";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faStar} from "@fortawesome/free-solid-svg-icons/faStar"
 
 export default function Cards ({ content }) {
+    function printStars(value) {
+        for(let i=0; i < value; i++) {
+            <FontAwesomeIcon key={i} icon={faStar} className="mr-1"/>
+        }
+    }
+
     return (
         <>
             <div>
@@ -12,11 +18,7 @@ export default function Cards ({ content }) {
                 {content.numberStars && content.reviewCount &&
                     <p className="pt-6">
                         <span className="text-mikado-yellow">
-                            {/*{content.numberStars.map((value, index) => {*/}
-                            {/*    return (*/}
-                            {/*        <FontAwesomeIcon key={index} icon={faStar} className="mr-1"/>*/}
-                            {/*    )*/}
-                            {/*})}*/}
+                            {printStars(content.numberStars)}
                         </span>
                         <span className="text-black font-light">({content.reviewCount} Review)</span>
                     </p>
